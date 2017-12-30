@@ -117,10 +117,30 @@ $( "li" ).each(function( index ) {
 </ul>
 
 If we begin at item II, we can find list items within it: 
+The result of this call is a red background on items A, B, 1, 2, 3, and C. Even though item II matches the selector expression, it is not included in the results; only descendants are considered candidates for the match.
 ```
 ```js
 $( "li.item-ii" ).find( "li" ).css( "background-color", "red" );
 ```
-```html
-The result of this call is a red background on items A, B, 1, 2, 3, and C. Even though item II matches the selector expression, it is not included in the results; only descendants are considered candidates for the match.
+
+
+# ajax 
+### for rest
+```js
+$.ajax({
+  type: 'post',
+  url: '/api/file',
+  data: {
+    lol:lol
+
+  },
+  success: function(data) {
+         $('#main').html($(data).find('#main *'));
+         $('#notification-bar').text('The page has been successfully loaded');
+      },
+      error: function() {
+         $('#notification-bar').text('An error occurred');
+      }
+});
 ```
+
