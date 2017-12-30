@@ -1,46 +1,35 @@
-### CDN
-Available on [jsdelivr](https://cdn.jsdelivr.net/npm/vue-resource@1.3.5), [unpkg](https://unpkg.com/vue-resource@1.3.5) or [cdnjs](https://cdnjs.com/libraries/vue-resource).
-```html
-<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
-```
 
-# Hide Function
+# hide 
 ### Hides an element if it was visible
 ```js
 $( ".target" ).hide();
 ```
 
-# Show Function
+# show 
 ### Shows an element if it was hidden
 ```js
 $( ".target" ).show();
 ```
 
-# Show Function
-### Shows an element if it was hidden
-```js
-$( ".target" ).show();
-```
-
-# html Function
+# html 
 ### Gets or sets an inner HTML of an element
 ```js
 $( "div.demo-container" ).html();
 ```
 
-# append Function
+# append 
 ### Injects an element into the DOM after the selected element
 ```js
 $( ".inner" ).append( "<p>Test</p>" );
 ```
 
-# prepend Function
+# prepend 
 ### Injects an element into the DOM before the selected element
 ```js
 $( ".inner" ).prepend( "<p>Test</p>" );
 ```
 
-# on Function
+# on 
 ### Attaches an event listener to an element
 ```js
 $( "#dataTable tbody tr" ).on( "click", function() {
@@ -48,7 +37,7 @@ $( "#dataTable tbody tr" ).on( "click", function() {
 });
 ```
 
-# off Function
+# off 
 ### Detaches an event listener from an element
 ```js
 // ... Now foo will be called when paragraphs are clicked ...
@@ -60,33 +49,33 @@ $( "body" ).off( "click", "p", foo );
 ```
 
 
-# css Function
+# css 
 ### Gets or sets the style attribute value of an element
 ```js
 $( '.div' ).css( "background-color",'white' );
 ```
 
-# attr Function
+# attr 
 ### Gets or sets any attribute of an element
 ```js
 var title = $( "div" ).attr( "title" );
 });
 ```
 
-# val Function
+# val 
 ### Gets or sets the value attribute of an element
 ```js
 $( "select#foo" ).val();
 });
 ```
 
-# text Function
+# text 
 ### Gets the combined text of an element and its children
 ```js
 $( "div.demo-container" ).text()
 ```
 
-# each Function
+# each 
 ### Iterates over a set of matched elements
 ```html
 <ul>
@@ -103,4 +92,35 @@ $( "li" ).each(function( index ) {
 ```html
  0: foo
 1: bar 
+```
+
+# find 
+### Gets or sets the value attribute of an element
+
+```html
+<ul class="level-1">
+  <li class="item-i">I</li>
+  <li class="item-ii">II
+    <ul class="level-2">
+      <li class="item-a">A</li>
+      <li class="item-b">B
+        <ul class="level-3">
+          <li class="item-1">1</li>
+          <li class="item-2">2</li>
+          <li class="item-3">3</li>
+        </ul>
+      </li>
+      <li class="item-c">C</li>
+    </ul>
+  </li>
+  <li class="item-iii">III</li>
+</ul>
+
+If we begin at item II, we can find list items within it: 
+```
+```js
+$( "li.item-ii" ).find( "li" ).css( "background-color", "red" );
+```
+```html
+The result of this call is a red background on items A, B, 1, 2, 3, and C. Even though item II matches the selector expression, it is not included in the results; only descendants are considered candidates for the match.
 ```
